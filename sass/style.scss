@@ -83,3 +83,25 @@ li{
 
     }
 }
+h4{
+    margin:0 auto;
+}
+
+.grid{
+    display: grid;
+    width:80vw;
+    background: burlywood;
+    margin:0 auto;
+    grid-gap:10px 10px;
+
+    .card{
+        background-color: white;
+        border:solid 1px black;
+        width: 300px;
+        padding: 30px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+}
