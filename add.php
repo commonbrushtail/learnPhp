@@ -1,34 +1,36 @@
 <?php
-
+    $title = $email = $ingredients = '';
+    $error = ['email'=>'','title'=>'','ingredients'=>''];
+    
         if(isset($_POST['submit'])){
             if(empty($_POST['email'])){
-                echo 'email is required';
+                $error['email']='please enter email';
             } else {
                 $email = $_POST['email'];
                 if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
-                    echo 'this email is not valid';
+                   $error['email'] = 'email is not valid';
                 }
             }
     
             if(empty($_POST['ingredients'])){
-                echo 'ingredients is required';
+                $error['ingredients']='ingredients is required';
             } else {
                 $ingredients = $_POST['ingredients'];
                 if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/',$ingredients)){
-                    echo 'ingredients must be seperated by comma';
+                    $error['ingredients'] = 'ingredients must be seperated by comma';
                 }
             }
     
             if(empty($_POST['title'])){
-                echo 'title is required';
+                $error['title'] = 'title is required';
             } else {
                 $title = $_POST['title'];
                 if(!preg_match('/^[a-zA-Z\s]+$/',$title)){
-                    echo 'title must be letter and space only';
+                    $error['title'] = 'title must be letter and space only';
                 }
             }
     
-            print_r( $_POST);
+            
         }
 
         
@@ -51,11 +53,14 @@
     <h1>Add a Pizza</h1>
     <form class="addPizza" action="add.php" method="POST">
         <label for="">Your Email</label>
-        <input type="text" name="email">
+        <div><?php echo $error['email']; ?></div>
+        <input type="text" name="email" value = "<?php echo $email;?>">
         <label for="">Pizza Title</label>
-        <input type="text" name="title">
+        <div><?php echo $error['title']; ?></div>
+        <input type="text" name="title" value = "<?php echo $title;?>">
         <label for="">ingredients</label>
-        <input type="text" name="ingredients">
+        <div><?php echo $error['ingredients']; ?></div>
+        <input type="text" name="ingredients" value ="<?php echo $ingredients;?>">
         <button type="submit" name="submit" value="submit">Submit</button>
     </form>
 
