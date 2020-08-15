@@ -1,25 +1,13 @@
-
-
-<?php 
-include 'ninja.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    
-
-</head>
+<?php include 'head.php'?>
 <body>
 
-    <h1><?php include 'ninja.php'  ?></h1>
-   
+<?php include 'components/navBar.php' ?>
 
-    
+
+
+
+<?php include 'components/footer.php'?>
 </body>
 </html>
